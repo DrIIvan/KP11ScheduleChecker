@@ -1,6 +1,6 @@
 import flet as ft
 from flet_route import Routing, path
-from pages.page_errorchecker import ErrorChecker
+from pages.page_errorschecker import ErrorChecker
 
 
 class Router:

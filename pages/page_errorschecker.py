@@ -1,6 +1,7 @@
 from flet_route import Params, Basket
 import usefull_functions
 import flet as ft 
+import settings
 
 
 class ErrorChecker:
@@ -16,6 +17,9 @@ class ErrorChecker:
         # ----------------------------------------------------------
         # Блок создания функций.------------------------------------
         
+        def change_cur_file(e):
+            settings.current_file = excel_dropdown_list.content.value
+            
         # ----------------------------------------------------------
         # Создание элеменов управления.-----------------------------
 
@@ -29,14 +33,16 @@ class ErrorChecker:
         excel_dropdown_list = ft.Container(
             content=ft.Dropdown(
                 border_color="cyan", 
-                hint_text="Выберите файл .xlsm"
+                hint_text="Выберите файл .xlsm",
+                on_change=change_cur_file,
             ), 
             alignment=ft.alignment.center
         )
 
         formater_button = ft.ElevatedButton(
             text="Выбрать",
-            color="cyan"
+            color="cyan",
+            on_click= lambda e: print(settings.current_file)
         )
 
         # ----------------------------------------------------------
